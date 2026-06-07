@@ -1,0 +1,23 @@
+<!-- pphpa/resources/views/layout.phtml -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Core System</title>
+    
+    <!-- Globalne pliki z silnika (Core) -->
+    <link rel="stylesheet" href="/css/core.css">
+    <script src="/js/core.js" defer></script>
+    
+    <!-- Lokalne pliki Twojej aplikacji -->
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/js/app.js" defer></script>
+</head>
+<body>
+
+    <!-- Miejsce, w które system automatycznie wklei zawartość konkretnej podstrony -->
+    <?php include $viewFile; ?>
+
+</body>
+</html>

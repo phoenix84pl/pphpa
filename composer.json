@@ -20,11 +20,14 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [
-            "php -r \"@mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\""
-        ],
-        "post-update-cmd": [
-            "php -r \"@mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\""
-        ]
-    }
-}
+    "post-install-cmd": [
+        "php -r \"@mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\"",
+        "php -r \"@mkdir('public/css', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/css/core.css', 'public/css/core.css');\"",
+        "php -r \"@mkdir('public/js', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/js/core.js', 'public/js/core.js');\""
+    ],
+    "post-update-cmd": [
+        "php -r \"@mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\"",
+        "php -r \"@mkdir('public/css', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/css/core.css', 'public/css/core.css');\"",
+        "php -r \"@mkdir('public/js', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/js/core.js', 'public/js/core.js');\""
+    ]
+}}

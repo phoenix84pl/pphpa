@@ -1,6 +1,6 @@
 {
-    "name": "phoenix84pl/pphps",
-    "description": "Phoenix PHP Skeleton - szablon aplikacji bazujacy na PPHPC",
+    "name": "phoenix84pl/pphpa",
+    "description": "Phoenix PHP Application - szablon aplikacji bazujacy na PPHPC",
     "type": "project",
     "license": "MIT",
     "require": {
@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Phoenix\\App\\": "src/"
         }
     },
     "repositories": {

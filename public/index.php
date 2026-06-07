@@ -31,10 +31,6 @@ $router = new \Phoenix\Core\Router(__DIR__ . '/../resources/views');
 
 // Trasa "/" odpali automatycznie resources/views/index.phtml (dzięki fallbackowi w Core)
 
-$router->get('/ping', function($request) {
-    return "pong";
-});
-
 $router->get('/api/status', function($request) {
     return new \Nyholm\Psr7\Response(
         200, 

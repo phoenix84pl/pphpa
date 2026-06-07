@@ -2,41 +2,29 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Phoenix PHP Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Core System</title>
     <style>
-        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
-        .box { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background: #eee; }
+        body { font-family: sans-serif; background: #0f172a; color: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { text-align: center; border: 1px solid #334155; padding: 3rem; border-radius: 12px; background: #1e293b; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); }
+        h1 { color: #38bdf8; margin-bottom: 0.5rem; }
+        p { color: #94a3b8; }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; background: #065f46; color: #34d399; border-radius: 50px; font-size: 0.85rem; font-weight: bold; margin: 5px; }
+        .badge-error { background: #7f1d1d; color: #fca5a5; }
     </style>
 </head>
 <body>
-
-    <div class="box">
-        <h1>Witamy w PPHPS!</h1>
-        <p>Status silnika z rdzenia: <strong><?= $coreTest->info() ?></strong></p>
+    <div class="container">
+        <h1>Phoenix Application</h1>
+        <p>System uruchomiony pomyślnie w architekturze PSR-7.</p>
         
-        <hr>
+        <div class="badge">✓ Core & Router Online</div>
 
-        <h2><?= $tytulSekcji ?></h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nazwa projektu</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($projekty as $projekt): ?>
-                    <tr>
-                        <td><?= $projekt['id'] ?></td>
-                        <td><?= htmlspecialchars($projekt['nazwa']) ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <?php if (isset($db)): ?>
+            <div class="badge">✓ Klasa DB wstrzyknięta pomyślnie!</div>
+        <?php else: ?>
+            <div class="badge badge-error">✗ Brak klasy Database w Core</div>
+        <?php endif; ?>
     </div>
-
 </body>
 </html>

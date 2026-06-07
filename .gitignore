@@ -1,3 +1,9 @@
+# Zależności Composera
 /vendor/
+
+# Konfiguracja edytorów (śmieci lokalne)
 .vscode/
 .idea/
+
+# Plik z tajnymi hasłami i kluczami API (Baza, Google Login)
+.env

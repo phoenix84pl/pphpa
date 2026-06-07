@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Phoenix PHP Application</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+        .box { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>Witamy w PPHPS!</h1>
+        <p>Status silnika z rdzenia: <strong><?= $coreTest->info() ?></strong></p>
+        
+        <hr>
+
+        <h2><?= $tytulSekcji ?></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nazwa projektu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($projekty as $projekt): ?>
+                    <tr>
+                        <td><?= $projekt['id'] ?></td>
+                        <td><?= htmlspecialchars($projekt['nazwa']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

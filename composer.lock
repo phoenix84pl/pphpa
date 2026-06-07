@@ -1,0 +1,63 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "cbd83dea87aa5849925b512fd16b0935",
+    "packages": [
+        {
+            "name": "phoenix84pl/pphpc",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phoenix84pl/pphpc.git",
+                "reference": "33a3391354ec9a0dceab0e329a91f4a249a3a795"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phoenix84pl/pphpc/zipball/33a3391354ec9a0dceab0e329a91f4a249a3a795",
+                "reference": "33a3391354ec9a0dceab0e329a91f4a249a3a795",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PPHPC\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "phoenix84pl",
+                    "email": "phoenix84pl@github.com"
+                }
+            ],
+            "description": "Phoenix PHP Core - uniwersalny silnik do projektow CMS i aplikacji",
+            "support": {
+                "source": "https://github.com/phoenix84pl/pphpc/tree/main",
+                "issues": "https://github.com/phoenix84pl/pphpc/issues"
+            },
+            "time": "2026-06-07T03:33:49+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "phoenix84pl/pphpc": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

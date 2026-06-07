@@ -1,0 +1,21 @@
+{
+    "name": "phoenix84pl/pphps",
+    "description": "Phoenix PHP Skeleton - szablon aplikacji bazujacy na PPHPC",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.0",
+        "phoenix84pl/pphpc": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "repositories": {
+        "pphpc": {
+            "type": "vcs",
+            "url": "https://github.com/phoenix84pl/pphpc"
+        }
+    }
+}

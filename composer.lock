@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phoenix84pl/pphpc.git",
-                "reference": "33a3391354ec9a0dceab0e329a91f4a249a3a795"
+                "reference": "a6234be830770aec742f3e13bd20e4db423440f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phoenix84pl/pphpc/zipball/33a3391354ec9a0dceab0e329a91f4a249a3a795",
-                "reference": "33a3391354ec9a0dceab0e329a91f4a249a3a795",
+                "url": "https://api.github.com/repos/phoenix84pl/pphpc/zipball/a6234be830770aec742f3e13bd20e4db423440f1",
+                "reference": "a6234be830770aec742f3e13bd20e4db423440f1",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                 "source": "https://github.com/phoenix84pl/pphpc/tree/main",
                 "issues": "https://github.com/phoenix84pl/pphpc/issues"
             },
-            "time": "2026-06-07T03:33:49+00:00"
+            "time": "2026-06-07T04:15:20+00:00"
         }
     ],
     "packages-dev": [],

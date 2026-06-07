@@ -17,5 +17,13 @@
             "type": "vcs",
             "url": "https://github.com/phoenix84pl/pphpc"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php -r \"@mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\""
+        ],
+        "post-update-cmd": [
+            "php -r \"@mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\""
+        ]
     }
 }

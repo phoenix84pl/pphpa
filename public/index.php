@@ -13,13 +13,19 @@ $request = $creator->fromGlobals();
 
 
 // 3. OBSŁUGA BAZY DANYCH ($db)
-// Inicjalizujemy zmienną. Jeśli w silniku (Core) istnieje klasa Database, tworzymy jej obiekt.
 $db = null;
-if (class_exists('\Phoenix\Core\Database')) {
-    // W przyszłości parametry połączenia (host, user, pass) wyciągniemy stąd do pliku konfiguracyjnego
-    $db = new \Phoenix\Core\Database();
-}
 
+try {
+    if (class_exists('\Phoenix\Core\Database')) {
+        // Tworzymy obiekt – na razie jest pusty, konfigurację dociągniemy 
+        // w kolejnym kroku przez plik konfiguracyjny/środowiskowy .env
+        $db = new \Phoenix\Core\Database();
+    }
+} catch (\Throwable $e) {
+    // Jeśli cokolwiek wywali się przy bazie, wyłapujemy to.
+    // Zapisujemy błąd do logów, ale pozwalamy aplikacji działać dalej!
+    error_log("Database initialization failed: " . $e->getMessage());
+}
 
 // 4. Inicjalizacja profesjonalnego Routera (wskazujemy folder na widoki .phtml)
 $router = new \Phoenix\Core\Router(__DIR__ . '/../resources/views');

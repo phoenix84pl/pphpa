@@ -27,7 +27,6 @@ $db = null;
 
 try {
     if (class_exists('\Phoenix\Core\Database')) {
-        // Jeśli w .env zdefiniowano dane logowania, inicjalizujemy Singletona z parametrami
         if (isset($_ENV['DB_HOST']) && $_ENV['DB_HOST'] !== '') {
             $db = \Phoenix\Core\Database::getInstance([
                 'host' => $_ENV['DB_HOST'],
@@ -36,13 +35,13 @@ try {
                 'name' => $_ENV['DB_NAME']
             ]);
         } else {
-            // Bezpiecznik: jeśli brak .env, pobieramy pustą instancję
             $db = \Phoenix\Core\Database::getInstance();
         }
     }
 } catch (\Throwable $e) {
-    // Jeśli cokolwiek wywali się przy bazie, wyłapujemy to i logujemy
-    error_log("Database initialization failed: " . $e->getMessage());
+    // ARCHITEKTURA: Nie zabijamy systemu przez die(). 
+    // Przekazujemy złapany błąd ($e) dalej, żeby kontroler mógł go obsłużyć.
+    $db = $e;
 }
 
 // 5. Inicjalizacja profesjonalnego Routera (wskazujemy folder na widoki .phtml)

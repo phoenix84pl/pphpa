@@ -27,23 +27,21 @@ $db = null;
 
 try {
     if (class_exists('\Phoenix\Core\Database')) {
-        // Jeśli w .env zdefiniowano dane logowania, przekazujemy je do konstruktora
-        if (isset($_ENV['DB_HOST'])) {
-            $db = new \Phoenix\Core\Database(
-                $_ENV['DB_HOST'],
-                $_ENV['DB_USER'],
-                $_ENV['DB_PASS'],
-                $_ENV['DB_NAME']
-            );
+        // Jeśli w .env zdefiniowano dane logowania, inicjalizujemy Singletona z parametrami
+        if (isset($_ENV['DB_HOST']) && $_ENV['DB_HOST'] !== '') {
+            $db = \Phoenix\Core\Database::getInstance([
+                'host' => $_ENV['DB_HOST'],
+                'user' => $_ENV['DB_USER'],
+                'pass' => $_ENV['DB_PASS'],
+                'name' => $_ENV['DB_NAME']
+            ]);
         } else {
-            // Bezpiecznik: jeśli brak .env, tworzymy pusty obiekt, 
-            // dzięki czemu system i trasa /ping nie umrą.
-            $db = new \Phoenix\Core\Database();
+            // Bezpiecznik: jeśli brak .env, pobieramy pustą instancję
+            $db = \Phoenix\Core\Database::getInstance();
         }
     }
 } catch (\Throwable $e) {
-    // Jeśli cokolwiek wywali się przy bazie, wyłapujemy to.
-    // Zapisujemy błąd do logów, ale pozwalamy aplikacji działać dalej!
+    // Jeśli cokolwiek wywali się przy bazie, wyłapujemy to i logujemy
     error_log("Database initialization failed: " . $e->getMessage());
 }
 

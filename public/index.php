@@ -27,20 +27,22 @@ $db = null;
 
 try {
     if (class_exists('\Phoenix\Core\Database')) {
+        // Sprawdzamy czy mamy ustawionego hosta w .env
         if (isset($_ENV['DB_HOST']) && $_ENV['DB_HOST'] !== '') {
-            $db = \Phoenix\Core\Database::getInstance([
-                'host' => $_ENV['DB_HOST'],
-                'user' => $_ENV['DB_USER'],
-                'pass' => $_ENV['DB_PASS'],
-                'name' => $_ENV['DB_NAME']
-            ]);
+            $db = new \Phoenix\Core\Database(
+                $_ENV['DB_HOST'],
+                $_ENV['DB_USER'],
+                $_ENV['DB_PASS'],
+                $_ENV['DB_NAME']
+            );
         } else {
-            $db = \Phoenix\Core\Database::getInstance();
+            // Rezerwowy fallback, jeśli z jakiegoś powodu brak .env
+            $db = new \Phoenix\Core\Database();
         }
     }
 } catch (\Throwable $e) {
-    // ARCHITEKTURA: Nie zabijamy systemu przez die(). 
-    // Przekazujemy złapany błąd ($e) dalej, żeby kontroler mógł go obsłużyć.
+    // Jeśli sam konstruktor (np. PDO) rzuci błędem połączenia,
+    // przekazujemy ten wyjątek do $db, a kontroler wyświetli go jako JSON.
     $db = $e;
 }
 

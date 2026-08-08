@@ -218,12 +218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phoenix84pl/pphpc.git",
-                "reference": "eab4ad21b1c61218150106de5cf4ac8436d01103"
+                "reference": "7d6ac8b1f3f6f842002702c12e82ed9409245e2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phoenix84pl/pphpc/zipball/eab4ad21b1c61218150106de5cf4ac8436d01103",
-                "reference": "eab4ad21b1c61218150106de5cf4ac8436d01103",
+                "url": "https://api.github.com/repos/phoenix84pl/pphpc/zipball/7d6ac8b1f3f6f842002702c12e82ed9409245e2a",
+                "reference": "7d6ac8b1f3f6f842002702c12e82ed9409245e2a",
                 "shasum": ""
             },
             "require": {
@@ -234,6 +234,9 @@
                 "vlucas/phpdotenv": "^5.6"
             },
             "default-branch": true,
+            "bin": [
+                "bin/update-database-views"
+            ],
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -254,7 +257,7 @@
                 "source": "https://github.com/phoenix84pl/pphpc/tree/main",
                 "issues": "https://github.com/phoenix84pl/pphpc/issues"
             },
-            "time": "2026-06-08T01:34:47+00:00"
+            "time": "2026-08-08T23:49:45+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -580,16 +583,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.38.1",
+            "version": "v1.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "14c5439eec4ccff081ac14eca2dc57feb2a66d92"
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/14c5439eec4ccff081ac14eca2dc57feb2a66d92",
-                "reference": "14c5439eec4ccff081ac14eca2dc57feb2a66d92",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
                 "shasum": ""
             },
             "require": {
@@ -641,7 +644,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.1"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.2"
             },
             "funding": [
                 {
@@ -661,7 +664,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-26T12:51:13+00:00"
+            "time": "2026-05-27T06:59:30+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
@@ -749,16 +752,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v5.6.3",
+            "version": "v5.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "955e7815d677a3eaa7075231212f2110983adecc"
+                "reference": "416df702837983f8d5ff48c9c3fee4f5f57b980b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/955e7815d677a3eaa7075231212f2110983adecc",
-                "reference": "955e7815d677a3eaa7075231212f2110983adecc",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/416df702837983f8d5ff48c9c3fee4f5f57b980b",
+                "reference": "416df702837983f8d5ff48c9c3fee4f5f57b980b",
                 "shasum": ""
             },
             "require": {
@@ -817,7 +820,7 @@
             ],
             "support": {
                 "issues": "https://github.com/vlucas/phpdotenv/issues",
-                "source": "https://github.com/vlucas/phpdotenv/tree/v5.6.3"
+                "source": "https://github.com/vlucas/phpdotenv/tree/v5.6.4"
             },
             "funding": [
                 {
@@ -829,7 +832,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-27T19:49:13+00:00"
+            "time": "2026-07-06T19:11:50+00:00"
         }
     ],
     "packages-dev": [],

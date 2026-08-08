@@ -1,61 +1,23 @@
 <?php
-// pphpa/public/index.php
+// public/index.php
 
-// 1. Ładowanie automatycznego ładowacza klas (Autoloader z Composera)
+// 1. Autoloader Composera
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// 2. ŁADOWANIE ZMIENNYCH ŚRODOWISKOWYCH (.env)
-try {
-    // Szuka pliku .env w głównym katalogu projektu (poziom wyżej niż public/)
-    $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
-    $dotenv->load();
-} catch (\Exception $e) {
-    // Jeśli pliku .env nie ma (np. świeża instalacja), aplikacja idzie dalej,
-    // ale baza danych nie zostanie skonfigurowana.
-}
+// 2. Rozruch środowiska (wczytanie .env oraz bazy $db z PPHPC)
+\Phoenix\Core\Bootstrap::init(dirname(__DIR__));
 
-// 3. Tworzenie fabryki żądań PSR-7 na podstawie zmiennych globalnych serwera
+// 3. Tworzenie fabryki PSR-7
 $psr17Factory = new \Nyholm\Psr7\Factory\Psr17Factory();
 $creator = new \Nyholm\Psr7Server\ServerRequestCreator(
     $psr17Factory, $psr17Factory, $psr17Factory, $psr17Factory
 );
 $request = $creator->fromGlobals();
 
-
-// 4. OBSŁUGA BAZY DANYCH ($db)
-$db = null;
-
-try {
-    if (class_exists('\Phoenix\Core\Database')) {
-        // Sprawdzamy czy mamy ustawionego hosta w .env
-        if (isset($_ENV['DB_HOST']) && $_ENV['DB_HOST'] !== '') {
-            $db = new \Phoenix\Core\Database(
-                $_ENV['DB_HOST'],
-                $_ENV['DB_USER'],
-                $_ENV['DB_PASS'],
-                $_ENV['DB_NAME']
-            );
-        } else {
-            // Rezerwowy fallback, jeśli z jakiegoś powodu brak .env
-            $db = new \Phoenix\Core\Database();
-        }
-    }
-} catch (\Throwable $e) {
-    // Jeśli sam konstruktor (np. PDO) rzuci błędem połączenia,
-    // przekazujemy ten wyjątek do $db, a kontroler wyświetli go jako JSON.
-    $db = $e;
-}
-
-// 5. Inicjalizacja profesjonalnego Routera (wskazujemy folder na widoki .phtml)
+// 4. Inicjalizacja Routera
 $router = new \Phoenix\Core\Router(__DIR__ . '/../views');
 
-
-// ----------------------------------------------------------------------
-// SYSTEMOWE TRASY SZABLONU (ROUTING PROGRAMISTYCZNY)
-// ----------------------------------------------------------------------
-
-// Trasa "/" odpali automatycznie views/index.phtml (dzięki fallbackowi w Core)
-
+// 5. Trasa statusowa API
 $router->get('/api/status', function($request) {
     return new \Nyholm\Psr7\Response(
         200, 
@@ -64,15 +26,9 @@ $router->get('/api/status', function($request) {
     );
 });
 
-
-// ----------------------------------------------------------------------
-// OBSŁUGA ŻĄDANIA I EMISJA ODPOWIEDZI
-// ----------------------------------------------------------------------
-
-// 6. Przetwarzanie aktualnego adresu URL przez silnik Routera
+// 6. Obsługa żądania i emisja odpowiedzi
 $response = $router->handle($request);
 
-// 7. Emisja kodu statusu i nagłówków HTTP do przeglądarki
 http_response_code($response->getStatusCode());
 foreach ($response->getHeaders() as $name => $values) {
     foreach ($values as $value) {
@@ -80,5 +36,4 @@ foreach ($response->getHeaders() as $name => $values) {
     }
 }
 
-// 8. Wyplucie właściwej treści strony (w tym naszych widoków .phtml)
 echo $response->getBody();

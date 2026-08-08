@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Application Platform</title>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: monospace; padding: 2rem; display: flex; justify-content: center; align-items: center; min-height: 80vh; margin: 0; }
+        .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 2.5rem; max-width: 600px; width: 100%; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+        h1 { color: #38bdf8; margin-top: 0; font-size: 1.8rem; display: flex; align-items: center; gap: 10px; }
+        .status-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+        .status-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #334155; }
+        .badge { background: #059669; color: #ecfdf5; padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
+        .code-box { background: #0f172a; padding: 1rem; border-radius: 6px; color: #a5f3fc; overflow-x: auto; font-size: 0.9rem; }
+        a { color: #38bdf8; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🚀 Phoenix Application</h1>
+        <p>Aplikacja została pomyślnie zainicjalizowana w architekturze PPHPA / PPHPC.</p>
+        
+        <ul class="status-list">
+            <li class="status-item">
+                <span>Szkielet Aplikacji (PPHPA):</span>
+                <span class="badge">ONLINE</span>
+            </li>
+            <li class="status-item">
+                <span>Silnik Rdzenia (PPHPC):</span>
+                <span class="badge">ONLINE</span>
+            </li>
+            <li class="status-item">
+                <span>Połączenie Bazy Data (pPDO):</span>
+                <span class="badge"><?= isset($db) && $db ? 'CONNECTED' : 'OFFLINE' ?></span>
+            </li>
+        </ul>
+
+        <p><strong>Gotowy do pracy!</strong> Aby podmienić tę stronę, utwórz własny widok lub zmodyfikuj plik:</p>
+        <div class="code-box">views/welcome.phtml</div>
+    </div>
+</body>
+</html>

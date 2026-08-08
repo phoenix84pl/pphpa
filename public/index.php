@@ -47,14 +47,14 @@ try {
 }
 
 // 5. Inicjalizacja profesjonalnego Routera (wskazujemy folder na widoki .phtml)
-$router = new \Phoenix\Core\Router(__DIR__ . '/../resources/views');
+$router = new \Phoenix\Core\Router(__DIR__ . '/../views');
 
 
 // ----------------------------------------------------------------------
 // SYSTEMOWE TRASY SZABLONU (ROUTING PROGRAMISTYCZNY)
 // ----------------------------------------------------------------------
 
-// Trasa "/" odpali automatycznie resources/views/index.phtml (dzięki fallbackowi w Core)
+// Trasa "/" odpali automatycznie views/index.phtml (dzięki fallbackowi w Core)
 
 $router->get('/api/status', function($request) {
     return new \Nyholm\Psr7\Response(

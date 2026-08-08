@@ -218,12 +218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phoenix84pl/pphpc.git",
-                "reference": "218b93be4b95f1013f4837c9da5f2948c6a8ac11"
+                "reference": "eab4ad21b1c61218150106de5cf4ac8436d01103"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phoenix84pl/pphpc/zipball/218b93be4b95f1013f4837c9da5f2948c6a8ac11",
-                "reference": "218b93be4b95f1013f4837c9da5f2948c6a8ac11",
+                "url": "https://api.github.com/repos/phoenix84pl/pphpc/zipball/eab4ad21b1c61218150106de5cf4ac8436d01103",
+                "reference": "eab4ad21b1c61218150106de5cf4ac8436d01103",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +254,7 @@
                 "source": "https://github.com/phoenix84pl/pphpc/tree/main",
                 "issues": "https://github.com/phoenix84pl/pphpc/issues"
             },
-            "time": "2026-06-07T23:42:02+00:00"
+            "time": "2026-06-08T01:34:47+00:00"
         },
         {
             "name": "phpoption/phpoption",

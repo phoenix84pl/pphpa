@@ -5,8 +5,8 @@
     "license": "MIT",
     "require": {
         "php": ">=8.0",
-        "phoenix84pl/pphpc": "dev-main",
-        "nyholm/psr7-server": "^1.1"
+        "nyholm/psr7-server": "^1.1",
+        "phoenix84pl/pphpc": "dev-main"
     },
     "autoload": {
         "psr-4": {
@@ -20,14 +20,15 @@
         }
     },
     "scripts": {
-    "post-install-cmd": [
-        "php -r \"@mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\"",
-        "php -r \"@mkdir('public/css', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/css/core.css', 'public/css/core.css');\"",
-        "php -r \"@mkdir('public/js', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/js/core.js', 'public/js/core.js');\""
-    ],
-    "post-update-cmd": [
-        "php -r \"@mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\"",
-        "php -r \"@mkdir('public/css', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/css/core.css', 'public/css/core.css');\"",
-        "php -r \"@mkdir('public/js', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/js/core.js', 'public/js/core.js');\""
-    ]
-}}
+        "post-install-cmd": [
+            "php -r \"is_dir('public') || mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\"",
+            "php -r \"is_dir('public/assets/css') || mkdir('public/assets/css', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/css/core.css', 'public/assets/css/core.css');\"",
+            "php -r \"is_dir('public/assets/js') || mkdir('public/assets/js', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/js/jquery.min.js', 'public/assets/js/jquery.min.js'); copy('vendor/phoenix84pl/pphpc/assets/js/core.js', 'public/assets/js/core.js');\""
+        ],
+        "post-update-cmd": [
+            "php -r \"is_dir('public') || mkdir('public', 0755, true); copy('vendor/phoenix84pl/pphpc/templates/.htaccess', 'public/.htaccess');\"",
+            "php -r \"is_dir('public/assets/css') || mkdir('public/assets/css', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/css/core.css', 'public/assets/css/core.css');\"",
+            "php -r \"is_dir('public/assets/js') || mkdir('public/assets/js', 0755, true); copy('vendor/phoenix84pl/pphpc/assets/js/jquery.min.js', 'public/assets/js/jquery.min.js'); copy('vendor/phoenix84pl/pphpc/assets/js/core.js', 'public/assets/js/core.js');\""
+        ]
+    }
+}

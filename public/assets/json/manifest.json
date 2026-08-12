@@ -1,0 +1,16 @@
+{
+  "name": "Phoenix Application",
+  "short_name": "PA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    { "src": "/assets/img/logo/CMSLogo-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/logo/CMSLogo-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "screenshots": [
+  { "src": "/assets/img/inne/poziomy.png", "sizes": "1886x1021", "type": "image/png", "form_factor": "wide" },
+  { "src": "/assets/img/inne/pionowy.png", "sizes": "399x866", "type": "image/png", "form_factor": "narrow" }
+  ]
+}
